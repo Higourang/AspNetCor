@@ -85,6 +85,13 @@
     <!-- Exclude the apphost because this is expected to be code-signed by customers after the SDK modifies it. -->
     <FileSignInfo Include="apphost.exe" CertificateName="None" />
 
+    <SignValidationExclusionList Include="**/*.js" />
+    <SignValidationExclusionList Include="**/*.otf" />
+    <SignValidationExclusionList Include="**/*.ttf" />
+    <SignValidationExclusionList Include="**/ancm.mof" />
+    <SignValidationExclusionList Include="**/apphost.exe" />
+    <SignValidationExclusionList Include="**/wix*" />
+
     <!--
       These files should already be signed by the .NET Core team. They have to be listed again here because we recreate a redistributable which includes the Microsoft.NETCore.App runtime.
       List all combinations of Windows RID's because CI may build multiple combinations of artitectures on the same machine.
